@@ -2,7 +2,6 @@
 # Version 0.1
 #
 # Thanks to the following students for reporting bugs:
-# 
 
 import random
 
