@@ -1,0 +1,32 @@
+This directory has datasets used in programming assignments for the course
+STATS 607A taught at the University of Michigan.
+
+seeds_dataset.txt
+=================
+This is a UCI dataset obtained from:
+http://archive.ics.uci.edu/ml/machine-learning-databases/00236/seeds_dataset.txt
+ 
+seeds_dataset_shuffled.txt
+==========================
+This is the same as seeds_dataset except that the data has been randomly shuffled
+so that the examples in the same class are no longer contiguous.
+
+example_index and example_arcs
+==============================
+This is a small webgraph obtained from:
+http://webdatacommons.org/hyperlinkgraph/
+There are 106 vertices and 141 directed edges
+
+ionosphere.data
+===============
+This is a UCI datset obtained from:
+https://archive.ics.uci.edu/ml/machine-learning-databases/ionosphere/
+
+tracy-widom.csv
+===============
+This isn't really a dataset. Since there's no built-in function in
+Python/numpy/scipy that can evaluate the Tracy-Widom distribution's density, I
+dumped the numerical values of the density function in this csv file. The
+arguments are given in decreasing order and range from 5 through -8 in steps of
+0.005. The numerical values were calculated in MATLAB using Algorithm 2 in:
+http://www-math.mit.edu/~edelman/publications/random_matrix.pdf
