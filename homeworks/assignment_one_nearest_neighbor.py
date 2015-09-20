@@ -111,7 +111,7 @@ def nn_classifier(point, train_data, train_labels, k, K):
 
 def classification_error(classifier, data, labels):
 
-    """ Compuate classification error of classifier on data & labels. """
+    """ Compute classification error of classifier on data & labels. """
 
     # check whether data and labels have same no. of elements
     if len(data) != len(labels):
