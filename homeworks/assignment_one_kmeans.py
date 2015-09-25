@@ -108,7 +108,7 @@ def recompute_centers(instances, cluster_ids, centers):
         one_cluster = []
         cluster_size = len(one_cluster)
         if cluster_size == 0:  # empty cluster
-            raise Exception("kmeans: empty clustered created.")
+            raise Exception("kmeans: empty cluster created.")
 
         # TASK 1.5.2
         # Suppose one_cluster is [i1, i2, i3, ... ]
