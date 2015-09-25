@@ -1,7 +1,8 @@
 # Assignment 1, Part 1: K-means
-# Version 0.1
+# Version 0.2
 #
 # Thanks to the following students for reporting bugs:
+# Young Hun Jung
 
 import random
 
@@ -106,6 +107,8 @@ def recompute_centers(instances, cluster_ids, centers):
         # Use a single list comprehension.
         one_cluster = []
         cluster_size = len(one_cluster)
+        if cluster_size == 0:  # empty cluster
+            raise Exception("kmeans: empty clustered created.")
 
         # TASK 1.5.2
         # Suppose one_cluster is [i1, i2, i3, ... ]
