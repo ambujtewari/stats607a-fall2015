@@ -39,7 +39,7 @@ into a single {\tt .zip} file and name it {\tt assignment\_two\_uniqname.zip} wh
 The first 3 files should be python scripts that run without any error message. The last file should be a PDF file with answers to all questions below. 
 
 
-\section{Pagerank (10 points)}
+\section{Pagerank (8 points)}
 
 In this assignment, we will implement 3 more algorithms from the list of ``top 10 data mining algorithms" mentioned in the previous assignment.
 In the first problem, we will implement the \href{http://en.wikipedia.org/wiki/PageRank}{Pagerank algorithm}. Download the test files {\tt example\_index.txt} and
@@ -66,21 +66,21 @@ own code.\\
 
 We will now briefly describe your tasks. If something is unclear, please don't hesitate to email the instructor and/or GSI.
 
-\subsection{Creating the adjacency matrix (1 point)}
+\subsection{Creating the adjacency matrix (0.5 points)}
 
 {\bf Important:} In Problem 1, you are NOT supposed to use any explicit \verb#for# or \verb#while# loops, nor can you use any list comprehensions. You have to use \verb#numpy# functions and \verb#ndarray# methods to do everything. The only \verb#while# loop we will need is in the power iteration implemention. That loop is already present -- don't add any new loops in your solutions or your submission file may be completely rejected.
 
 We want to create an adjacency matrix \verb#adj_mat# (containing only $0$s and $1$s) such that \verb#adj_mat[i, j]# is $1$ iff there is an edge from $i$ to $j$. Supply the code for this in TASK 1.1
 
-\subsection{Finding  dangling nodes (1 point)}
+\subsection{Finding  dangling nodes (0.5 points)}
 
 Dangling nodes are those from which there are no out-links (in terms of the adjacency matrix, the entire row corresponding to a dangling node is zero). In TASK 1.2, create a 1-d array {\tt dangling} such that {\tt dangling[i] == 1} if ${\tt i}$ is a dangling node and is $0$ otherwise.
 
-\subsection{Normalize non-zero rows of adjacency matrix (1 point)}
+\subsection{Normalize non-zero rows of adjacency matrix (0.5 points)}
 
 In TASK 1.3, normalize each nonzero row of \verb#adj_mat# to have row-sum 1 (leave the zero rows untouched) to get \verb#adj_mat_norm#.
 
-\subsection{Make a rank one change to get a stochastic matrix (1 point)}
+\subsection{Make a rank one change to get a stochastic matrix (0.5 points)}
 
 In TASK 1.4, create a rank one change matrix $\frac{1}{n} \mathbf{a} \mathbf{e}^T$ where $\mathbf{a}$ is the dangling node indicator vector and $\mathbf{e}$ is the vector of $1$'s.
 We will add this rank one matrix to {\tt adj\_mat\_norm} to get a stochastic matrix {\tt adj\_mat\_stoch}.
@@ -127,7 +127,7 @@ Did your power iteration computation result {\tt pageranks} agree with result of
 \end{description}
 
 
-\section{Support Vector Machine (15 points)}
+\section{Support Vector Machine (9 points)}
 
 
 In this problem, we will implement the \href{http://en.wikipedia.org/wiki/Support\_vector\_machine}{Support Vector Machine}.
@@ -173,18 +173,18 @@ Complete the following tasks.
 {\bf Important:} In this problem, do NOT add any {\tt for} or {\tt while} loops of your own. You may use list comprehensions if you need them.
 Try and use {\tt numpy} functions and {\tt ndarray} methods as much as possible.
 
-\subsection{Creating the kernel matrix (1 point)}
+\subsection{Creating the kernel matrix (0.5 points)}
 Create an $n \times n$ symmetric matrix $\mathbf{K}$ ({\tt kernel\_mat} in the code) such that {\tt kernel\_mat[i, j]} is $K(x_i, x_j)$.
 
 (I couldn't figure out an elegant way to compute the kernel matrix given instances and a kernel function without using at least 1 {\tt for}
 loop. The existing code uses 2 nested loops. Keep it that way in your solution and but anyone who emails me a
 valid solution without loops which is more time-efficient than the 2 loop version we have will get a +1 extra credit.)
 
-\subsection{Creating the function evaluator (2 points)}
+\subsection{Creating the function evaluator (0.5 points)}
 
 Supply code for the function {\tt func} so that it evaluates the function $f(\alpha)$ above given $\alpha$ as a $1$-d array {\tt alpha}.
 
-\subsection{Creating the gradient evaluator (2 points)}
+\subsection{Creating the gradient evaluator (1 points)}
 
 Supply code for the gradient evaluator {\tt func\_deriv} so that it evaluates the function $\nabla f(\alpha)$ above given $\alpha$ as a $1$-d array {\tt alpha}.
 Remember than {\tt func\_deriv} will return a length $n$ $1$-d array, not a scalar. Also note the formula for the gradient:
@@ -192,7 +192,7 @@ $$
 \nabla f(\alpha) = -\mathbf{1} + (\mathbf{K} \odot YY^\top) \alpha \ .
 $$
 
-\subsection{Constraints (1 point)}
+\subsection{Constraints (0.5 point)}
 
 The constraint $0 \leq \alpha_i \leq C$ will be represented by a tuple {\tt (0.0, C)}. The list of constraints {\tt box\_constraints} should be a list containing
 $n$ such tuples.
@@ -202,7 +202,7 @@ $n$ such tuples.
 The signed labels $y_i$ are represented in the code as {\tt pm\_labels}. Once the optimization terminates, the vector {\tt alpha\_y} is formed
 to store the $n$ values $\alpha_i y_i$. Set {\tt alpha\_y\_nz} as just the non-zero $\alpha_i y_i$s.
 
-\subsection{Retaining the support vectors (1 point)}
+\subsection{Retaining the support vectors (0.5 points)}
 
 Store the support vectors in {\tt support\_vectors}.
 
@@ -211,14 +211,14 @@ Store the support vectors in {\tt support\_vectors}.
 Write the function {\tt classifier} so that it returns the right label computed according to \eqref{eq:rule}. Use the variables
 {\tt kernel\_func, support\_vectors, alpha\_y\_nz} to do this.
 
-\subsection{Evaluating the classifier (4 points)}
+\subsection{Evaluating the classifier (2 points)}
 
 Make sure you know what a confusion matrix is:
 \url{http://en.wikipedia.org/wiki/Confusion\_matrix}
 
 Implement the function {\tt evaluate\_classifier} that should return the confusion matrix for {\tt classifier} on {\tt instances, labels}.
 
-TASK 8 has 4 subtasks.
+TASK 8 has 4 subtasks each worth 0.5 points.
 
 \subsection{Running the script and discussing the output (2 points)}
 
@@ -234,7 +234,7 @@ Which class is more difficult to classify? Positive (label 1 = ``g'')? Negative 
 \end{description}
 
 
-\section{Adaboost (10 points)}
+\section{Adaboost (8 points)}
 
 In this problem, we will implement the \href{http://en.wikipedia.org/wiki/AdaBoost}{Adaboost} algorithm.
 We will continue to use the ``ionosphere" data set that we used in the SVM problem.
@@ -252,7 +252,7 @@ Complete the following tasks.
 However, do try and use {\tt numpy} functions and {\tt ndarray} methods as much as possible. Any efficient solutions without using any loops
 will be awarded +2 extra credits.
 
-\subsection{Train weak learner (4 points)}
+\subsection{Train weak learner (2 points)}
 
 The first step in the Adaboost loop is to train a weak learner. Remember Adaboost is a ``boosting" algorithm: it combines weak classifiers 
 to create a stronger classifier. In this step:
