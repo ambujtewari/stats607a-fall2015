@@ -1,4 +1,6 @@
 # Assignment 3, Part 1: Random Matrix Theory
+#
+# Version: 0.1
 
 import numpy as np
 import scipy.linalg as LA

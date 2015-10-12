@@ -146,8 +146,8 @@ def main():
         # save animation to gif file
         filename = '%s_anim.gif' % name
         print 'Saving ' + filename
-        mpl.animation.ImageMagickBase.output_args = ['-loop','1',filename]
-        ani.save(filename, writer = 'imagemagick')
+        mpl.animation.ImageMagickBase.output_args = ['-loop', '1', filename]
+        ani.save(filename, writer='imagemagick')
 
         # close the figure
         plt.close(fig)
